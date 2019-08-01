@@ -1,8 +1,65 @@
-.nav-bar {
-  max-height: 20%;
-  max-width: 20%;
+h1, h2 {
+  color: green;
 }
 
-h1 {
-  color: green;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  max-height: 55%;
+}
+
+li, a {
+  font-family: Futura, "Trebuchet MS", Arial;
+  display: inline-flex;
+  color: black;
+  text-align: left;
+  padding: 10px;
+  text-decoration: none;
+  /*float: right;*/
+}
+
+.navbar {
+  background-color: #000000;
+  border-color: #3FF2B9;
+  padding-top: 5px;
+  padding-right: 0px;
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-wrap: ;
+  transition: 0.5s;
+}
+
+.navbar a {
+  color: #ffffff;
+  padding: 18px 8px 8px 32px;
+  font-family: Geneva, sans-serif;
+  font-size: 20px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+}
+
+.navbar .closebtn {
+  color: black;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 25px;
+  text-align: center;
+  outline-style: solid;
+  position: absolute;
+  right: 25px;
+  cursor: pointer;
 }

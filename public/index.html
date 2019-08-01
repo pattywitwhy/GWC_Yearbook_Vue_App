@@ -10,12 +10,35 @@
     <title>GWC Yearbook</title>
   </head>
   <body>
+      <img src="GWC_logo.jpg" style="max-height: 40%; max-width: 40%; float: left">
     <header>
-      <div class="nav-bar">
-        <img src="GWC_logo.jpg" style="max-height: 40%; max-width: 40%">
+      <ul>
+        <li><span onclick="openNav()">&#9776;</span></li>
+      </ul>
+      <div class="navbar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+          <li>
+            <router-link to="/login">
+            <h2><a href="/login">Login</a></h2>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/signout">
+              <h2><a href="/signout">Signout</a></h2>
+            </router-link>
+          </li>
+          <li> <router-link to="/signin">
+            <h2><a href="/signin">Signin</a></h2>
+            </router-link>
+          </li>
       </div>
     </header>
+
     <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
+
+  <script type="text/javascript">
+    function closeNav() { document.getElementById("navbar").style.width = "0"; }
+    function openNav() { document.getElementById("navbar").style.width = "420px"; }
+  </script>
 </html>
