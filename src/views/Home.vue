@@ -98,11 +98,16 @@ export default {
     return {
       user: {
             id: "",
-            image: "",
-            name: "",
-            email: "",
-            preferred_language: "",
-            phone_number: ""
+            first_name: "",
+            last_name: "",
+            birthday: "",
+            age: "",
+            school: "",
+            grade: "",
+            college: "",
+            major: "",
+            bio: "",
+            final_project: ""
       },
       errors: [] 
     };
@@ -121,11 +126,16 @@ export default {
     submit: function() {
       var params = {
                     id: this.user.id,
-                    image: this.user.image,
-                    name: this.user.name,
-                    email: this.user.email,
-                    preferred_language: this.user.preferred_language,
-                    phone_number: this.user.phone_number
+                    first_name: this.user.first_name,
+                    last_name: this.user.last_name,
+                    birthday: this.user.birthday,
+                    age: this.user.age,
+                    school: this.user.school,
+                    grade: this.user.grade,
+                    college: this.user.college,
+                    major: this.user.major,
+                    bio: this.user.bio,
+                    final_project: this.user.final_project
       }
 
       axios.patch("/api/users/" + this.user.id, params)
@@ -139,12 +149,12 @@ export default {
         });
     },
 
-    homepage: function() {
-      axios.get("/api/conversations/")
-        .then(response => {
-          this.$router.push("/conversations")
-        });
-    }
+    // homepage: function() {
+    //   axios.get("/api/conversations/")
+    //     .then(response => {
+    //       this.$router.push("/conversations")
+    //     });
+    // }
   }
 };
 </script>
