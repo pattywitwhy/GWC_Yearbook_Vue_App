@@ -1,18 +1,150 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+
+    <div class="container">
+      <form v-on:submit.prevent="submit()">
+        <div class="form-group">
+          <label>Image</label> 
+          <input type="text" class="form-control" v-model="user.image">
+        </div>
+        <div class="form-group">
+          <label>First Name</label> 
+          <input type="text" class="form-control" v-model="user.first_name">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="last_name" class="form-control" v-model="user.last_name">
+        </div>
+        <div class="form-group">
+          <label>Birthday</label>
+          <input type="birthday" class="form-control" v-model="user.birthday">
+        </div>
+        <div class="form-group">
+          <label>Age</label>
+          <input type="age" class="form-control" v-model="user.age">
+        </div>
+        <div class="form-group">
+          <label>School</label>
+          <input type="school" class="form-control" v-model="user.school">
+        </div>
+        <div class="form-group">
+          <label>Grade</label>
+          <input type="grade" class="form-control" v-model="user.grade">
+        </div>
+        <div class="form-group">
+          <label>College</label>
+          <input type="college" class="form-control" v-model="user.college">
+        </div>
+        <div class="form-group">
+          <label>Major</label>
+          <input type="major" class="form-control" v-model="user.major">
+        </div>
+        <div class="form-group">
+          <label>Bio</label>
+          <input type="bio" class="form-control" v-model="user.bio">
+        </div>
+        <div class="form-group">
+          <label>Final Project</label>
+          <input type="final_project" class="form-control" v-model="user.final_project">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Save">
+      </form>
+    </div>
+    
+    <button class="btn" v-on:click="homepage()">Homepage</button>
+
   </div>
+
 </template>
 
+<style>
+  #profile-image {
+    height: 250px;
+    width: 250px;
+    padding-top: 2px;
+    border-radius: 70% 70% 70% 70%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .btn {
+    margin: 30px 0;
+    border-radius: 0;
+    padding: 10px 25px;
+    float: center;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: #868e96;
+    border-color: #868e96;
+  }
+
+  .btn:hover {
+    background-color: #ffffff;
+    color: #fff;
+  }
+
+</style>
+
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+var axios = require('axios');
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  data: function() {
+    return {
+      user: {
+            id: "",
+            image: "",
+            name: "",
+            email: "",
+            preferred_language: "",
+            phone_number: ""
+      },
+      errors: [] 
+    };
+  },
+
+  created: function () {
+    var userId = localStorage.getItem("userId");
+    axios.get("/api/users/" + userId)
+      .then(response => {
+      console.log(response.data);
+      this.user = response.data;
+    });
+  },
+
+  methods: {
+    submit: function() {
+      var params = {
+                    id: this.user.id,
+                    image: this.user.image,
+                    name: this.user.name,
+                    email: this.user.email,
+                    preferred_language: this.user.preferred_language,
+                    phone_number: this.user.phone_number
+      }
+
+      axios.patch("/api/users/" + this.user.id, params)
+        .then(response => {
+          this.user = response.data;
+          this.$router.push("/home");
+        }).catch(error => {
+          console.log(error.response.data.errors);
+          this.user.push(response.data);
+          this.$router.push("/home")
+        });
+    },
+
+    homepage: function() {
+      axios.get("/api/conversations/")
+        .then(response => {
+          this.$router.push("/conversations")
+        });
+    }
   }
-}
+};
 </script>
