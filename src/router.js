@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 import Signup from "./views/Signup.vue"
 import Signout from "./views/Signout.vue"
 import Login from "./views/Login.vue"
-import GWC from "./views/GWC"
+import StudentsIndex from "./views/StudentsIndex.vue"
 
 Vue.use(Router)
 
@@ -17,7 +17,7 @@ export default new Router({
     { path: '/about', name: 'about'},
     { path: '/signup', name: 'signup', component: Signup },
     { path: '/signout', name: 'signout', component: Signout },
-    { path: '/Login', name: 'Login', component: Login },
-    { path: '/GWC', name: 'GWC', component: GWC }
+    { path: '/login', name: 'login', component: Login },
+    { path: '/students', name: 'students-index', component: StudentsIndex }
   ]
 })

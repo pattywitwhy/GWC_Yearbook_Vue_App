@@ -39,10 +39,10 @@
       axios.get("/api/students")
         .then(response => {
           console.log(response.data)
-          axios.get("/api/users")
-            .then(response => {
-              this.users = response.data
-            });
+          // axios.get("/api/students")
+          //   .then(response => {
+          //     this.users = response.data
+          //   });
         });
     },
     methods: {

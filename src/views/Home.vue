@@ -4,6 +4,8 @@
       <li v-for="error in errors">{{ error }}</li>
     </ul>
 
+    <h1>Studwents</h1>
+
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <div class="form-group">
@@ -141,7 +143,7 @@ export default {
       axios.patch("/api/users/" + this.user.id, params)
         .then(response => {
           this.user = response.data;
-          this.$router.push("/home");
+          this.$router.push("/students");
         }).catch(error => {
           console.log(error.response.data.errors);
           this.user.push(response.data);
