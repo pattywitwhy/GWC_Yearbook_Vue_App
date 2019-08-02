@@ -5,6 +5,8 @@
       <div v-for="student in students" >
         <router-link v-bind:to="'students/' + student.id">
           {{ student.first_name + student.last_name }} 
+          {{student.grade}}
+          {{student.school}}
         </router-link>
       </div>
     </div>
