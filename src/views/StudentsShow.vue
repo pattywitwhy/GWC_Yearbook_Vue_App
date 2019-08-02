@@ -26,6 +26,7 @@ export default {
                       bio: "",
                       final_project: ""
             }
+          }
   },
 
   created: function() {
@@ -33,7 +34,7 @@ export default {
     axios.get("/api/students/" + this.$route.params.id )
       .then(response => {
       this.studefnt = response.data;
-      axios.get("/api/users" + this.$route.params.id)
+      axios.get("/api/students/" + this.$route.params.id)
       console.log(this.studefnt);
 
     });
