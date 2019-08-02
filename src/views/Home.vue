@@ -63,31 +63,12 @@
 </template>
 
 <style>
-  #profile-image {
+  .container {
+    align-content: center;
     height: 250px;
     width: 250px;
-    padding-top: 2px;
-    border-radius: 70% 70% 70% 70%;
     margin-left: 5px;
     margin-right: 5px;
-  }
-
-  .btn {
-    margin: 30px 0;
-    border-radius: 0;
-    padding: 10px 25px;
-    float: center;
-    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-    color: white;
-    text-transform: uppercase;
-    font-weight: 900;
-    background-color: #868e96;
-    border-color: #868e96;
-  }
-
-  .btn:hover {
-    background-color: #ffffff;
-    color: #fff;
   }
 
 </style>

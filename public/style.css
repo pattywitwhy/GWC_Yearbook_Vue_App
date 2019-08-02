@@ -18,34 +18,8 @@ li, a {
   font-family: Futura, "Trebuchet MS", Arial;
   display: inline-flex;
   color: black;
-  /*text-align: right;*/
+  text-align: left;
   padding: 10px;
   text-decoration: none;
   float: right;
-}
-
-.navbar {
-  background-color: #000000;
-  border-color: #3FF2B9;
-  padding-top: 5px;
-  padding-right: 0px;
-  width: 0;
-  height: 100%;
-  top: 0;
-  right: 0;
-  position: fixed;
-  overflow-x: hidden;
-  overflow-wrap: ;
-  transition: 0.5s;
-}
-
-.navbar a {
-  color: black;
-  padding: 18px 8px 8px 32px;
-  font-family: Geneva, sans-serif;
-  font-size: 20px;
-  text-align: right;
-  text-decoration: none;
-  display: block;
-  transition: 0.3s;
 }
