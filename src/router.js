@@ -18,6 +18,6 @@ export default new Router({
     { path: '/login', name: 'login', component: Login },
     { path: '/home', name: 'home', component: Home},
     { path: '/students', name: 'students-index', component: StudentsIndex },
-    { path: '/students/:id', name: 'students-index', component: StudentsIndex },
+    { path: '/students/:id', name: 'students-show', component: StudentsShow },
   ]
 })
