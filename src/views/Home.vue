@@ -4,53 +4,53 @@
       <li v-for="error in errors">{{ error }}</li>
     </ul>
 
-    <h1>Studwents</h1>
+    <h1>STUDENTS</h1>
 
     <div class="container">
       <form v-on:submit.prevent="submit()">
         <div class="form-group">
           <label>Image</label> 
-          <input type="text" class="form-control" v-model="user.image">
+          <input type="text" class="form-control" v-model="student.image">
         </div>
         <div class="form-group">
           <label>First Name</label> 
-          <input type="text" class="form-control" v-model="user.first_name">
+          <input type="text" class="form-control" v-model="student.first_name">
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input type="last_name" class="form-control" v-model="user.last_name">
+          <input type="last_name" class="form-control" v-model="student.last_name">
         </div>
         <div class="form-group">
           <label>Birthday</label>
-          <input type="birthday" class="form-control" v-model="user.birthday">
+          <input type="birthday" class="form-control" v-model="student.birthday">
         </div>
         <div class="form-group">
           <label>Age</label>
-          <input type="age" class="form-control" v-model="user.age">
+          <input type="age" class="form-control" v-model="student.age">
         </div>
         <div class="form-group">
           <label>School</label>
-          <input type="school" class="form-control" v-model="user.school">
+          <input type="school" class="form-control" v-model="student.school">
         </div>
         <div class="form-group">
           <label>Grade</label>
-          <input type="grade" class="form-control" v-model="user.grade">
+          <input type="grade" class="form-control" v-model="student.grade">
         </div>
         <div class="form-group">
           <label>College</label>
-          <input type="college" class="form-control" v-model="user.college">
+          <input type="college" class="form-control" v-model="student.college">
         </div>
         <div class="form-group">
           <label>Major</label>
-          <input type="major" class="form-control" v-model="user.major">
+          <input type="major" class="form-control" v-model="student.major">
         </div>
         <div class="form-group">
           <label>Bio</label>
-          <input type="bio" class="form-control" v-model="user.bio">
+          <input type="bio" class="form-control" v-model="student.bio">
         </div>
         <div class="form-group">
           <label>Final Project</label>
-          <input type="final_project" class="form-control" v-model="user.final_project">
+          <input type="final_project" class="form-control" v-model="student.final_project">
         </div>
         <input type="submit" class="btn btn-primary" value="Save">
       </form>
@@ -98,7 +98,7 @@ var axios = require('axios');
 export default {
   data: function() {
     return {
-      user: {
+      student: {
             id: "",
             first_name: "",
             last_name: "",
@@ -116,47 +116,47 @@ export default {
   },
 
   created: function () {
-    var userId = localStorage.getItem("userId");
-    axios.get("/api/users/" + userId)
+    var studentId = localStorage.getItem("studentId");
+    axios.get("/api/users/")
       .then(response => {
       console.log(response.data);
-      this.user = response.data;
+      this.student = response.data;
     });
   },
 
   methods: {
     submit: function() {
       var params = {
-                    id: this.user.id,
-                    first_name: this.user.first_name,
-                    last_name: this.user.last_name,
-                    birthday: this.user.birthday,
-                    age: this.user.age,
-                    school: this.user.school,
-                    grade: this.user.grade,
-                    college: this.user.college,
-                    major: this.user.major,
-                    bio: this.user.bio,
-                    final_project: this.user.final_project
+                    id: this.student.id,
+                    first_name: this.student.first_name,
+                    last_name: this.student.last_name,
+                    birthday: this.student.birthday,
+                    age: this.student.age,
+                    school: this.student.school,
+                    grade: this.student.grade,
+                    college: this.student.college,
+                    major: this.student.major,
+                    bio: this.student.bio,
+                    final_project: this.student.final_project
       }
 
-      axios.patch("/api/users/" + this.user.id, params)
+      axios.patch("/api/students/" + this.student.id, params)
         .then(response => {
-          this.user = response.data;
+          this.student = response.data;
           this.$router.push("/students");
         }).catch(error => {
           console.log(error.response.data.errors);
-          this.user.push(response.data);
-          this.$router.push("/home")
+          this.student.push(response.data);
+          this.$router.push("/login")
         });
     },
 
-    // homepage: function() {
-    //   axios.get("/api/conversations/")
-    //     .then(response => {
-    //       this.$router.push("/conversations")
-    //     });
-    // }
+    homepage: function() {
+      axios.get("/api/students/")
+        .then(response => {
+          this.$router.push("/students")
+        });
+    }
   }
 };
 </script>
