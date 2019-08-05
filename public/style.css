@@ -1,5 +1,13 @@
+.nav {
+  display: block;
+}
+
+.nav-bar {
+  display: block;
+}
+
 h1, h2 {
-  color: green;
+  color: #2c3e50;
 }
 
 ul {
