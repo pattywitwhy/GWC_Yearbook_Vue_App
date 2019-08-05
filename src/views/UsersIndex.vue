@@ -1,7 +1,10 @@
 <template>
   <div class="users-index">
+    <br>
+    <br>
+    <br>
     <h1>Meet The CHICAGO AT&T Girls Who Code</h1>
-    <div>
+    <div id="students">
       <div v-for="user in users" >
         <router-link v-bind:to="'users/' + user.id">
           {{ user.image }}
@@ -16,7 +19,11 @@
   </div>
 </template>
 
-<style></style>
+<style>
+  router-link {
+    text-align: center;
+  }
+</style>
 
 <script>
   var axios = require('axios');
@@ -45,11 +52,6 @@
         .then(response => {
           console.log(response.data)
           this.users = response.data;
-
-          // axios.get("/api/users")
-          //   .then(response => {
-          //     this.users = response.data
-          //   });
         });
     },
     methods: {
