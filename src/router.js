@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Index from './views/Index.vue'
 import Home from './views/Home.vue'
 import Signup from "./views/Signup.vue"
 import Signout from "./views/Signout.vue"
@@ -17,6 +18,7 @@ export default new Router({
     { path: '/signout', name: 'signout', component: Signout },
     { path: '/login', name: 'login', component: Login },
     { path: '/home', name: 'home', component: Home},
+    { path: '/index', name: 'index', component: Index},
     { path: '/users', name: 'users-index', component: UsersIndex },
     { path: '/users/:id', name: 'users-show', component: UsersShow },
   ]

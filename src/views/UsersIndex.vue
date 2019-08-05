@@ -4,9 +4,10 @@
     <div>
       <div v-for="user in users" >
         <router-link v-bind:to="'users/' + user.id">
-          {{ user.first_name + user.last_name }} 
-          {{user.grade}}
-          {{user.school}}
+          {{ user.image }}
+          {{ user.first_name + " " + user.last_name }} 
+          {{ user.grade }}
+          {{ user.school }}
         </router-link>
       </div>
     </div>
@@ -25,6 +26,7 @@
       return {
         users: [],
         user: {
+                  image: "",
                   first_name: "",
                   last_name: "",
                   birthday: "",
