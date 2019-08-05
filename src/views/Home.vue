@@ -6,7 +6,7 @@
 
     <h1>STUDENTS</h1>
 
-    <div class="container">
+    <div id="container">
       <form v-on:submit.prevent="submit()">
         <div class="form-group">
           <label>Image</label> 
@@ -63,12 +63,30 @@
 </template>
 
 <style>
-  .container {
+  #container {
     align-content: center;
     height: 250px;
     width: 250px;
     margin-left: 5px;
     margin-right: 5px;
+  }
+
+  .btn {
+    margin: 30px 0;
+    border-radius: 5%;
+    padding: 10px 25px;
+    float: center;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900;
+    background-color: #868e96;
+    border-color: #868e96;
+  }
+
+  .btn:hover {
+    background-color: #ffffff;
+    color: #fff;
   }
 
 </style>
@@ -97,8 +115,8 @@ export default {
   },
 
   created: function () {
-    var studentId = localStorage.getItem("studentId");
-    axios.get("/api/users/")
+    var userId = localStorage.getItem("userId");
+    axios.get("/api/users/" + userId)
       .then(response => {
       console.log(response.data);
       this.student = response.data;
@@ -128,7 +146,7 @@ export default {
         }).catch(error => {
           console.log(error.response.data.errors);
           this.student.push(response.data);
-          this.$router.push("/login")
+          this.$router.push("/home")
         });
     },
 
