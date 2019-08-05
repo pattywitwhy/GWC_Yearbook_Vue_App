@@ -1,12 +1,12 @@
 <template>
-  <div class="students-index">
+  <div class="users-index">
     <h1>Meet The CHICAGO AT&T Girls Who Code</h1>
     <div>
-      <div v-for="student in students" >
-        <router-link v-bind:to="'students/' + student.id">
-          {{ student.first_name + student.last_name }} 
-          {{student.grade}}
-          {{student.school}}
+      <div v-for="user in users" >
+        <router-link v-bind:to="'users/' + user.id">
+          {{ user.first_name + user.last_name }} 
+          {{user.grade}}
+          {{user.school}}
         </router-link>
       </div>
     </div>
@@ -23,8 +23,8 @@
   export default {
     data: function() {
       return {
-        students: [],
-        student: {
+        users: [],
+        user: {
                   first_name: "",
                   last_name: "",
                   birthday: "",
@@ -39,12 +39,12 @@
       };
     },
     created: function() {
-      axios.get("/api/students")
+      axios.get("/api/users")
         .then(response => {
           console.log(response.data)
-          this.students = response.data;
+          this.users = response.data;
 
-          // axios.get("/api/students")
+          // axios.get("/api/users")
           //   .then(response => {
           //     this.users = response.data
           //   });
@@ -52,23 +52,23 @@
     },
     methods: {
       submit: function() {
-        console.log("Showing students")
+        console.log("Showing users")
         var params = {
-                      first_name: this.student.first_name,
-                      last_name: this.student.last_name,
-                      birthday: this.student.birthday,
-                      age: this.student.age,
-                      school: this.student.school,
-                      grade: this.student.grade,
-                      college: this.student.college,
-                      major: this.student.major,
-                      bio: this.student.bio,
-                      final_project: this.student.final_project
+                      first_name: this.user.first_name,
+                      last_name: this.user.last_name,
+                      birthday: this.user.birthday,
+                      age: this.user.age,
+                      school: this.user.school,
+                      grade: this.user.grade,
+                      college: this.user.college,
+                      major: this.user.major,
+                      bio: this.user.bio,
+                      final_project: this.user.final_project
                       };                  
 
-          axios.post("api/students", params)
+          axios.post("api/users", params)
             .then(response => {
-              this.$router.push("/students");
+              this.$router.push("/users");
             });
       },
       storeID: function(userID) {

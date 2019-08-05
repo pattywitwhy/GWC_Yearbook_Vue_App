@@ -1,6 +1,6 @@
 <template>
-  <div class="students-show">
-    <h1 id="student-name">{{student.first_name + student.last_name}}</h1>
+  <div class="users-show">
+    <h1 id="user-name">{{user.first_name + user.last_name}}</h1>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
 
   data: function() {
     return {
-            student: {
+            user: {
                       first_name: "",
                       last_name: "",
                       birthday: "",
@@ -31,11 +31,11 @@ export default {
 
   created: function() {
     this.userId = localStorage.getItem("userId");
-    axios.get("/api/students/" + this.$route.params.id )
+    axios.get("/api/users/" + this.$route.params.id )
       .then(response => {
       this.studefnt = response.data;
-      axios.get("/api/students/" + this.$route.params.id)
-      console.log(this.studefnt);
+      axios.get("/api/users/" + this.$route.params.id)
+      console.log(this.user);
 
     });
   },
