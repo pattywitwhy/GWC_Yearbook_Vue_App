@@ -7,11 +7,21 @@
     <div id="students">
       <div v-for="user in users" >
         <router-link v-bind:to="'users/' + user.id">
-          {{ user.image }}
-          {{ user.first_name + " " + user.last_name }}
-          {{ user.bio }}
-          {{ user.grade }}
-          {{ user.school }}
+          <div>
+            {{ user.image }}
+          </div>
+          <pre>
+            {{ user.first_name + " " + user.last_name }}
+          </pre>
+          <pre>
+            {{ user.bio }}
+          </pre>
+          <pre>
+            {{ user.grade }}
+          </pre>
+          <pre>
+            {{ user.school }}
+          </pre>
         </router-link>
       </div>
     </div>
@@ -59,7 +69,7 @@
       submit: function() {
         console.log("Showing users")
         var params = {
-                      first_name: this.user.first_name,
+                      first_name: user.first_name,
                       last_name: this.user.last_name,
                       birthday: this.user.birthday,
                       age: this.user.age,
