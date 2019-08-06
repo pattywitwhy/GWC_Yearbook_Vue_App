@@ -8,7 +8,8 @@
       <div v-for="user in users" >
         <router-link v-bind:to="'users/' + user.id">
           {{ user.image }}
-          {{ user.first_name + " " + user.last_name }} 
+          {{ user.first_name + " " + user.last_name }}
+          {{ user.bio }}
           {{ user.grade }}
           {{ user.school }}
         </router-link>
