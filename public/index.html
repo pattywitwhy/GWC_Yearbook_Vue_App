@@ -8,42 +8,45 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
     <title>GWC Yearbook</title>
   </head>
-  <body>
-    <div class="nav">
-      <img src="GWC_logo.jpg" style="max-height: 4%; max-width: 13%; float: left">
-      <div class="nav-bar">
-          <li>
-            <router-link to="/login">
-            <h2><a href="/login">Login</a></h2>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/signout">
-              <h2><a href="/signout">Signout</a></h2>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/signin">
-              <h2><a href="/signup">Signup</a></h2>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/home">
-              <h2><a href="/home">Home</a></h2>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/index">
-              <h2><a href="/index">INDEX</a></h2>
-            </router-link>
-          </li>
 
-      </div>
+  <body>
+    <div id="nav">
+      <b-navbar-nav>
+        <img src="GWC_logo.jpg" style="max-height: 4%; max-width: 13%; float: left">
+        <b-nav-item>
+          <router-link to="/login">
+          <h2><a href="/login">Login</a></h2>
+          </router-link>
+        </b-nav-item>
+        <b-nav-item>
+          <router-link to="/signout">
+            <h2><a href="/signout">Signout</a></h2>
+          </router-link>
+        </b-nav-item>
+        <b-nav-item>
+          
+        </b-nav-item>
+        <b-nav-item>
+          <router-link to="/signin">
+            <h2><a href="/signup">Signup</a></h2>
+          </router-link>
+        </b-nav-item>
+        <b-nav-item>
+          <router-link to="/home">
+            <h2><a href="/home">Home</a></h2>
+          </router-link>
+        </b-nav-item>
+        <b-nav-item>
+          <router-link to="/index">
+            <h2><a href="/index">INDEX</a></h2>
+          </router-link>
+        </b-nav-item>
+      </b-navbar-nav>
     </div>
+
+    <br>
     <br>
     <br>
     <br>

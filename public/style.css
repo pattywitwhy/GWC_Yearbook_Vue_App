@@ -7,7 +7,7 @@
 }
 
 h1, h2 pre {
-  color: #2c3e50;
+  color: black !important;
   font-family: Futura, "Trebuchet MS", Arial;
 }
 
@@ -18,17 +18,31 @@ ul {
   overflow: hidden;
 }
 
-li {
-  float: left;
+li, a {
+  float: right;
   max-height: 55%;
 }
 
-li, a {
+.nav {
   font-family: Futura, "Trebuchet MS", Arial;
   display: inline-flex;
-  color: black;
+  color: black !important;
   text-align: left;
   padding: 10px;
   text-decoration: none;
   float: right;
+}
+
+ a {
+  font-family: Futura, "Trebuchet MS", Arial;
+  display: inline-flex;
+  color: black !important;
+  padding: 10px;
+  text-decoration: none;
+  /*float: right;*/
+}
+
+
+.girls {
+  
 }

@@ -1,39 +1,38 @@
 <template>
   <div class="users-index">
-    <br>
-    <br>
-    <br>
     <h1>Meet The CHICAGO AT&T Girls Who Code</h1>
     <div id="students">
-      <div v-for="user in users" >
-        <router-link v-bind:to="'users/' + user.id">
-          <div>
-            {{ user.image }}
-          </div>
-          <pre>
-            {{ user.first_name + " " + user.last_name }}
-          </pre>
-          <pre>
-            {{ user.bio }}
-          </pre>
-          <pre>
-            {{ user.grade }}
-          </pre>
-          <pre>
-            {{ user.school }}
-          </pre>
-        </router-link>
-      </div>
+      <b-card-group deck>
+        <div class="girls" v-for="user in users" >
+          <router-link v-bind:to="'users/' + user.id">
+              <b-card img-src="/Iry.JPG" tag="article" style="max-width: 20rem;" img-top>
+                <div>
+                  {{ user.image }}
+                  <b-card-text>
+                    {{ user.first_name + " " + user.last_name }}
+                  </b-card-text>
+                  <b-card-text>
+                    {{ user.grade }}
+                  </b-card-text>
+                  <b-card-text>
+                    {{ user.school }}
+                  </b-card-text>
+                  <b-card-text>
+                    {{ user.bio }}
+                  </b-card-text>
+                </div>
+              </b-card>
+          </router-link>
+        </div>
+      </b-card-group>
     </div>
-
-
   </div>
 </template>
 
 <style>
-  router-link {
-    text-align: center;
-  }
+.students {
+  float: left;
+}
 </style>
 
 <script>
