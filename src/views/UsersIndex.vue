@@ -30,9 +30,10 @@
 </template>
 
 <style>
-.students {
-  float: left;
+.card-deck {
+  justify-content: center;
 }
+
 </style>
 
 <script>
